@@ -1,25 +1,49 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Navbar from './Components/Navbar';
 
 function App() {
+
+  const [headline, setHeadline] = useState([]);
+
+  //This piece of code doesn't workout but when i changed it's function name it get triggerd. 
+  // const getNews = async () => {
+  //   const response = await fetch("https://api.github.com/user");
+  //   setNewz(await response.json());
+  // }
+
+  const getUsers = async () => {
+    const response = await fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=8fc5d29e9f8147968ccc87304f7669a0");
+    setHeadline(await response.json());
+  }
+
+  useEffect(() => {
+    getUsers();
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar title="Media Mic - A News App" />
+      <div className="container my-3">
+        {
+          headline.map((newget) => {
+            return (
+              <div className="row my-3 mx-3 d-inline-flex justify-content-center">
+                <div className="col-md-3 my-2" key={newget.id}>
+                  <div className="card" style={{ width: "18rem" }}>
+                    <img src={newget.urlToImage} className="card-img-top" alt="..." />
+                    <div className="card-body">
+                      <h5 className="card-title">{newget.title}</h5>
+                      <p className="card-text">Description: {newget.description}</p>
+                      {/* <a href="/" className="btn btn-sm btn-primary">Go somewhere</a> */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+          })
+        }
+      </div>
+    </>
   );
 }
-
 export default App;
