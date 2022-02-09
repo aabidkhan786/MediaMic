@@ -26,21 +26,20 @@ function App() {
 
   useEffect(() => {
     getUsers();
-  },[])
+  }, [])
   return (
     <>
       <Navbar title="Media Mic - A News App" />
       <div className="container my-3">
         {headline.map((newget) => {
           return (
-            <div className="row my-3 mx-3 d-inline-flex justify-content-center" key={newget.url}>
-              <div className="col-md-3 my-2">
-                <div className="card" style={{ width: "18rem" }}>
-                  <img src={newget.urlToImage} className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h5 className="card-title">{newget.title}</h5>
-                    <p className="card-text">Description: {newget.description}</p>
-                  </div>
+            <div className="container d-flex justify-content-start mt-3 shadow-container col-9 padding-0 bg-white border-post" key={newget.url}>
+              <div className='w-50 col-3 ml-0 p-1'><img src={newget.urlToImage} alt="astronaut" className="img-fluid border image-border" /></div>
+              <div className='mt-1 col-6 px-2'>
+                <div className="form-group mt-1">
+                  <p className='title-font'>" {newget.title} "</p>
+                  <p>{newget.description}</p>
+                  <p>Read more at: <a href={newget.url}>{newget.source.name}</a></p>
                 </div>
               </div>
             </div>
