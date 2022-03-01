@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+
 .App {
   text-align: center;
 }
@@ -37,7 +41,7 @@
   }
 }
 .shadow-sm1{
-    box-shadow: 0 0.1rem 0.4rem rgba(0,0,0,.075)!important;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%)!important;
 }
 .padding-0{
   padding-left: 0;
@@ -52,12 +56,16 @@
   border-radius: 3px;
 }
 .title-font{
-  font-family: 'Gideon Roman', cursive;
+  font-family: 'Dosis', sans-serif !important;
   font-weight: 600;
     font-size: 1.2em;
     text-align: center;
     margin: 1em 2em 0.5em 2em;
     text-transform: uppercase;
+}
+.form-group p{
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.1em;
 }
 .head-font{
   font-family: 'Philosopher', sans-serif !important;
@@ -74,11 +82,57 @@
 .padding-content{
   padding: 0px 1.3em 0px 0.7em;
 }
+header div{
+  align-items: center;
+}
+.head-section{
+  position: fixed;
+  top: 0;
+  width: -webkit-fill-available;
+  margin-top: 0 !important;
+}
+.container-responsive{
+  margin-top: 11.5em !important;
+}
+.form-group p i{
+  margin-right: 8px;
+}
+header div a{
+  text-decoration: none;
+  font-size: 1.6em;
+  margin-left: 45px;
+  color: black;
+}
+.category_section{
+  margin-top: 20px;
+}
+.category_section ul li{
+  list-style-type: none;
+  display: inline;
+  font-family: 'Dosis', sans-serif !important;
+  font-weight: 600;
+  font-size: 0.7em;
+  text-align: justify;
+}
+.category_section ul li i{
+  margin-right: 8px;
+}
+.category_section ul a{
+  margin-left: 30px !important;
+  text-align: justify;
+}
+.category_section ul{
+  display: contents;
+}
+
+
 @media screen and (max-width:1200px) and (min-width:992px){
   .container-responsive{
     max-width: 100%;
   }
 }
+
+
 @media screen and (max-width:992px) and (min-width:720px){
   .container{
     max-width: 830px;
@@ -93,6 +147,16 @@
     font-size: 1em;
   }
 }
+
+@media screen and (max-width:768px){
+  .category_section ul li{
+    display: block;
+  }
+  .category_section ul li{
+    border-bottom: 2px solid black;
+  }
+}
+
 @media screen and (max-width:720px){
   .container{
     max-width: 100%;
@@ -117,7 +181,8 @@
     font-size: 1.1em;
   }
   .head-font-size{
-    font-size: 1.6em;
+    font-size: 1.28em;
+    font-weight: 600;
   }
   .mb-5{
     margin-bottom: 1em!important;
